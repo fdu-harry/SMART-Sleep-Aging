@@ -1,0 +1,44 @@
+{
+  "Basic information": {
+    "Age": "60 years old",
+    "Sex": "Male"
+  },
+  "Lifestyle": {
+    "Smoking": "Former smoker",
+    "Alcohol intake": "No current use"
+  },
+  "Physical examination": {
+    "BMI": "30.0 kg/m^2",
+    "Blood pressure": "Systolic 142 mmHg, diastolic 88 mmHg"
+  },
+  "Sleep study measurements": {
+    "Assessment": "Overnight laboratory polysomnography",
+    "Total recording time": "450 min",
+    "Total sleep time": "360 min",
+    "Sleep efficiency": "80%",
+    "Sleep onset latency": "30 min",
+    "Wake after sleep onset": "60 min",
+    "AHI": "36 events/h of sleep, hypopneas scored with 3% desaturation or arousal",
+    "Obstructive apnea index": "12 events/h",
+    "Central apnea index": "1 event/h",
+    "Mixed apnea index": "1 event/h",
+    "Hypopnea index": "22 events/h",
+    "ODI (3%)": "32 events/h of sleep",
+    "Mean SpO2": "93.5%",
+    "Minimum SpO2": "78%",
+    "T90": "10% of total sleep time",
+    "N1 sleep": "12%",
+    "N2 sleep": "54%",
+    "N3 sleep": "14%",
+    "REM sleep": "20%",
+    "Arousal index": "30 events/h"
+  },
+  "Family history": {
+    "Cardiovascular history": null
+  },
+  "Medical history": {
+    "Hypertension": "Recorded history",
+    "Diabetes": "No reported history",
+    "Medication": "Antihypertensive medication, specific agent unknown"
+  }
+}

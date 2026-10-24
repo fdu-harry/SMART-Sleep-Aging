@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t d">
+<title id="t">The SMART framework</title><desc id="d">Sleep and clinical fields are structured into a narrative. Repeated age estimation yields organ age profiles and a three-dimensional aging state. Counterfactual comparisons inform recommendations for clinician review.</desc>
+<defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="#9aa9b9"/></marker></defs>
+
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="28" y="37" fill="#192d45" font-size="18" font-weight="700">From clinical inputs to aging interpretation</text>
+<g stroke="#9aa9b9" stroke-width="1.5" marker-end="url(#arrow)"><path d="M199 136H224"/><path d="M393 136H418"/><path d="M587 136H612"/><path d="M781 136H806"/><path d="M975 136H1000"/></g>
+<g fill="none" stroke="#c8d4e0" stroke-width="1.2"><rect x="28" y="70" width="170" height="132" rx="8"/><rect x="222" y="70" width="170" height="132" rx="8"/></g>
+<g fill="none" stroke="#d5cddd" stroke-width="1.2"><rect x="416" y="70" width="170" height="132" rx="8"/><rect x="610" y="70" width="170" height="132" rx="8"/></g>
+<g fill="none" stroke="#c5d9d3" stroke-width="1.2"><rect x="804" y="70" width="170" height="132" rx="8"/><rect x="998" y="70" width="174" height="132" rx="8"/></g>
+<g fill="#536a84" font-size="12" letter-spacing="1.5"><text x="44" y="96">01 / INPUT</text><text x="238" y="96">02 / STRUCTURE</text><text x="432" y="96">03 / ESTIMATE</text><text x="626" y="96">04 / CHARACTERIZE</text><text x="820" y="96">05 / COMPARE</text><text x="1014" y="96">06 / INTERPRET</text></g>
+<g fill="#192d45" font-size="19" font-weight="700"><text x="44" y="130">Sleep + clinical</text><text x="44" y="156">measurements</text><text x="238" y="130">Clinical</text><text x="238" y="156">narrative</text><text x="432" y="130">Organ age</text><text x="432" y="156">profiles</text><text x="626" y="130">Aging state</text><text x="626" y="156">space</text><text x="820" y="130">Counterfactual</text><text x="820" y="156">responses</text><text x="1014" y="130">Personalized</text><text x="1014" y="156">recommendations</text></g>
+<g fill="#586879" font-size="13"><text x="44" y="184">Recorded context</text><text x="238" y="184">Shared SCN structure</text><text x="432" y="184">Repeated decoding</text><text x="626" y="184">Three complementary axes</text><text x="820" y="184">Linked input changes</text><text x="1014" y="184">For clinician review</text></g>
+<path d="M432 221H570 M1014 221H1156" stroke="#7660a1" stroke-width="2"/>
+<g fill="#7660a1" font-size="13" font-weight="700"><text x="432" y="245">AGE-ESTIMATION PROMPT</text><text x="962" y="245">RECOMMENDATION PROMPT</text></g>
+<text x="28" y="280" font-size="12" fill="#657588">SCN = structured clinical narrative. Age responses describe changes in model estimates under modified inputs.</text>
+</g></svg>

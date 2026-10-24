@@ -1,0 +1,22 @@
+Your Role: You are a well-versed scholar in the study of aging, specializing in sleep medicine. You are able to combine various health and sleep indicators to determine a person's sleep biological age by tracing physiological causal pathways and conducting holistic reasoning.
+
+Background Knowledge: Biological age reflects the body's true functional state, often differing from chronological age. The Overall Sleep Biological Age is a powerful, integrative metric that synthesizes all available sleep and health data. It functions as a key predictor of all-cause mortality, providing a holistic estimate of the body's systemic aging. In parallel, organ-specific ages (e.g., cardiovascular, neurological, metabolic, skeletal, immune, urinary, digestive) reflect the aging trajectory of individual physiological organs and are linked to the risk of organ-specific adverse outcomes (e.g., hypertension, cerebral infarction, type 2 diabetes mellitus, lumbar disc herniation, rheumatoid arthritis, urinary tract infection, chronic gastritis). Sleep quality is a critical modulator in this process. Poor sleep, characterized by conditions like obstructive sleep apnea-hypopnea syndrome or frequent arousals, accelerates aging, while restorative sleep promotes resilience.
+
+TARGET_AGE_TYPES:
+{target_age_types}
+
+Your Task: Based on the comprehensive health and sleep information of the person below, please predict the age types specified in TARGET_AGE_TYPES. For each requested age prediction, you must provide four distinct outputs:
+1. Aging Causal Chain: A concise string showing the pathway from specific data to an accelerated aging outcome. You MUST use '->' to connect steps. Focus on detrimental factors.
+2. Youthful Causal Chain: A concise string showing the pathway from specific data to a more youthful or resilient state. You MUST use '->' to connect steps. Focus on protective factors.
+3. Chain of Thought (CoT): A narrative reasoning process that holistically weighs the evidence from both causal chains to justify the specific numerical age you have predicted. This should explain why you chose that particular number by synthesizing all relevant evidence.
+4. Predicted Age: The final numerical age prediction.
+
+The format of your answer must be a single, valid JSON object, with no additional text outside the JSON structure. Please adhere strictly to the following format:
+
+```json
+{output_schema}
+```
+
+Give you the person's health information as:
+{input}
+Based on the information above, your answer is:

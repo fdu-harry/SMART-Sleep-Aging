@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "Please cite the SMART manuscript and the software version used."
+type: software
+title: "SMART: Sleep Multi-agent Aging Reasoning Twin"
+version: 0.3.0
+date-released: 2026-10-24
+repository-code: "https://github.com/fdu-harry/SMART-Sleep-Aging"
+license: MIT
+authors:
+  - family-names: "Hu"
+    given-names: "Shuaicong"
+  - family-names: "Liu"
+    given-names: "Jian"
+  - family-names: "Wang"
+    given-names: "Yanan"
+  - family-names: "Zhong"
+    given-names: "Yi"
+  - family-names: "Yang"
+    given-names: "Cuiwei"
+  - family-names: "Chen"
+    given-names: "Xiaoyu"
+  - family-names: "Aghaeepour"
+    given-names: "Nima"
+  - family-names: "Liang"
+    given-names: "Zhiying"
+  - family-names: "Wang"
+    given-names: "Aiguo"
+  - family-names: "Lu"
+    given-names: "Lin"
+  - family-names: "Ngai"
+    given-names: "Edith Cheuk Han"
+abstract: "Research implementation accompanying Single-night sleep and clinical phenotypes reveal a human aging state space."

@@ -1,0 +1,31 @@
+{
+  "Basic information": {
+    "Age": "61 years old",
+    "Sex": "Female"
+  },
+  "Lifestyle": {
+    "Smoking": "Never smoker",
+    "Alcohol intake": null
+  },
+  "Physical examination": {
+    "BMI": "28.1 kg/m^2",
+    "Blood pressure": "Systolic 134 mmHg, diastolic 82 mmHg"
+  },
+  "Sleep study measurements": {
+    "Assessment": "Home respiratory monitoring",
+    "Recording time": "480 min",
+    "REI": "14.25 events/h of recording time, 3% desaturation definition",
+    "ODI (3%)": "12 events/h of recording time",
+    "Mean SpO2": "94.8%",
+    "Minimum SpO2": "84%",
+    "Total sleep time": null,
+    "Sleep architecture": null
+  },
+  "Family history": {
+    "Recorded history": null
+  },
+  "Medical history": {
+    "Hypertension": "Recorded history",
+    "Medication": "Antihypertensive medication, specific agent unknown"
+  }
+}

@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-sleep-aging"
+version = "0.3.0"
+description = "Sleep Multi-agent Aging Reasoning Twin: clinical narratives, organ ages and aging states"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "SMART research contributors"}]
+dependencies = ["numpy>=1.24,<3", "pandas>=2.0,<3"]
+
+[project.urls]
+Repository = "https://github.com/fdu-harry/SMART-Sleep-Aging"
+
+[project.optional-dependencies]
+analysis = ["scipy>=1.10,<2", "scikit-learn>=1.3,<2", "lifelines>=0.28,<0.31", "matplotlib>=3.7,<4"]
+dev = ["pytest>=7,<9"]
+notebook = ["jupyterlab>=4,<5", "nbclient>=0.10,<1"]
+
+[project.scripts]
+smart = "smart.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["smart*"]
+
+[tool.setuptools.package-data]
+smart = ["templates/*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,40 @@
+{
+  "Basic information": {
+    "Age": "49 years old",
+    "Sex": "Female"
+  },
+  "Lifestyle": {
+    "Smoking": "Never smoker",
+    "Alcohol intake": "No current use"
+  },
+  "Physical examination": {
+    "BMI": "24.3 kg/m^2",
+    "Blood pressure": "Systolic 119 mmHg, diastolic 74 mmHg"
+  },
+  "Sleep study measurements": {
+    "Assessment": "Overnight laboratory polysomnography",
+    "Total recording time": "420 min",
+    "Total sleep time": "300 min",
+    "Sleep efficiency": "71.43%",
+    "Sleep onset latency": "30 min",
+    "Wake after sleep onset": "90 min",
+    "AHI": "2.4 events/h of sleep, hypopneas scored with 3% desaturation or arousal",
+    "ODI (3%)": "2 events/h of sleep",
+    "Mean SpO2": "96.8%",
+    "Minimum SpO2": "91%",
+    "T90": "0% of total sleep time",
+    "N1 sleep": "10%",
+    "N2 sleep": "63%",
+    "N3 sleep": "12%",
+    "REM sleep": "15%",
+    "Arousal index": "22 events/h"
+  },
+  "Family history": {
+    "Recorded history": null
+  },
+  "Medical history": {
+    "Hypertension": "No reported history",
+    "Diabetes": "No reported history",
+    "Medication": "No regular medication reported"
+  }
+}
