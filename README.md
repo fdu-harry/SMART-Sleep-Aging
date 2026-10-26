@@ -14,8 +14,6 @@
 
 ## The SMART framework
 
-![The SMART framework from inputs to recommendations](assets/framework.svg)
-
 | Age acceleration | Organ asynchrony | Decoding instability |
 | :--- | :--- | :--- |
 | How far does predicted age differ from chronological age? | How unevenly do the organ age gaps differ within an individual? | How much do estimates for the same organ vary across repeated decodings? |
