@@ -24,7 +24,7 @@ For Jupyter, install `python -m pip install -e ".[analysis,dev,notebook]"` and o
 python examples/run_demo.py --predictions private_data/saved_predictions.json --case 01_respiratory_context
 ```
 
-This writes mean ages, age gaps, decoding SDs, Monte Carlo standard errors, organ asynchrony and decoding instability. To prepare a recommendation prompt, supply an SCN and a table identifying the baseline and each counterfactual scenario:
+This writes mean ages, age gaps, decoding SDs, Monte Carlo standard errors, organ asynchrony and decoding instability. To prepare a recommendation prompt, supply an SCN and saved age estimates for the same individual: one baseline and at least nine distinct valid counterfactual scenarios. The prompt assigns three recommendations to each priority tier. The two walkthrough perturbations belong to different constructed individuals and are not a complete recommendation input. The builder accepts table text without checking participant identity or scenario count, so these requirements must be checked before use:
 
 ```bash
 smart recommendation-prompt --input SCN.txt --table AGE_TABLE.csv --output recommendation_prompt.txt
@@ -47,7 +47,8 @@ The analysis functions are portable adaptations of the following study code. Fil
 | `smart/metrics.py` | Figure 5 signed-gap revision, `hi_source_copy.py`; SHHS/MrOS `load_bio_age`; `technical_plot_source.py` and `common.py` | Mean ages, age gaps, sample SD across organs, within-organ decoding SD, MCSE and Lin's CCC |
 | `smart/entropy.py` | `patient_disorder_entropy_SHHS.ipynb` and `patient_disorder_entropy_MrOS.ipynb`, analysis cell 3 | Reference scaling, adaptive bin boundaries, fixed-bin fallback and Shannon entropy |
 | `smart/counterfactual.py` | `counterfactual_report.ipynb`, `CascadeUpdater` | Linked TST, efficiency, stage, AHI and BMI updates, including intermediate rounding |
-| `smart/bootstrap.py` | `Decoding_paired_bootstrap_20261013/code/paired_metrics.py` | Paired participant resampling, tied-score rules and the three decoding summaries |
+| `smart/bootstrap.py` | `Decoding_paired_bootstrap_20261013/code/paired_metrics.py`, unchanged in the 27 October SHHS revision | Paired participant resampling, tied-score rules and the three decoding summaries |
+| ED9c summary table | `SHHS_followup_unified_20261027/code/analyse_ED9c.py` and `shared_survival.py` | Individual censoring times, common samples across strategies and fixed-score C-index evaluation |
 
 The SCN renderer, command-line interface and input validation were added to package these calculations for reuse. The numerical comparison checks operate on the original computational functions without executing notebook file-loading or plotting cells.
 
@@ -79,11 +80,15 @@ The numerical adapter preserves the original `CascadeUpdater` operations:
 
 The source rounds updated measurements to one decimal place, BMI to two decimals and event counts to integers. The adapter retains that rounding at each update, so rounded component indices may differ slightly from their stated total. Only recorded fields are changed. The wrapper rejects invalid input ranges and stage combinations before applying the source operations.
 
+The constructed TST example applies an additional timing constraint in `examples/run_demo.py`. It fixes recording time, sleep onset latency and terminal wake time, updating WASO from 90 to 30 min as TST increases from 300 to 360 min. This example-specific constraint is separate from the original report-generator cascade in `smart/counterfactual.py`.
+
 `age_shift` calculates counterfactual minus baseline age. `age_reduction` calculates baseline minus counterfactual age. These are model-estimate comparisons, not measured treatment responses.
 
 ## Decoding comparisons
 
-`analyses/data/fig4h_decoding_auc.csv` contains ten organ groups × three strategies, and `ed9c_decoding_cindex.csv` contains eight cardiovascular outcomes × three strategies. All 54 rows retain the original estimates, confidence limits and sample sizes.
+`analyses/data/fig4h_decoding_auc.csv` contains ten organ groups × three strategies, and `ed9c_decoding_cindex.csv` contains eight cardiovascular outcomes × three strategies. The 54 summary rows match the submitted comparisons. The ED9c table uses the revised 27 October 2026 analysis shown in the 28 October submission.
+
+ED9c reports apparent Harrell C-indices from univariable Cox models using cardiovascular age gaps. Observed events use their recorded event times. Participants without an event use their own `censdate` from the SHHS cardiovascular summary. Invalid outcome status, observed events without an event date, and missing or nonpositive follow-up are excluded before defining a common complete-prediction sample for the three strategies within each outcome. The supplied counts are outcome-specific. Model fitting precedes resampling, and the bootstrap retains the fitted risk scores.
 
 ```bash
 python analyses/replot.py

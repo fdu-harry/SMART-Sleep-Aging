@@ -28,7 +28,7 @@ Three **constructed examples** cover respiratory burden, sleep continuity and li
 | Example | Selected recorded information | What to explore |
 | :--- | :--- | :--- |
 | [Respiratory burden and clinical context](examples/01_respiratory_context.json) | AHI 36 events/h, T90 10%, BMI 30.0 kg/m², hypertension history | Interpretation of respiratory measurements alongside clinical context, with an AHI scenario that updates component indices |
-| [Sleep continuity and architecture](examples/02_sleep_continuity.json) | AHI 2.4 events/h, TST 300 min, efficiency 71.43%, arousal index 22 events/h | Information beyond respiratory-event frequency, with a TST scenario that updates efficiency |
+| [Sleep continuity and architecture](examples/02_sleep_continuity.json) | AHI 2.4 events/h, TST 300 min, efficiency 71.43%, arousal index 22 events/h | Information beyond respiratory-event frequency, with a TST scenario that updates efficiency and WASO at fixed recording time |
 | [A limited measurement set](examples/03_limited_measurements.json) | Home-monitoring REI 14.25 events/h of recording time, ODI (3%) 12 events/h, sleep staging not recorded | Shared narrative structure across different measurement sets, preserving unknown values and the REI/AHI distinction |
 
 **[Open the walkthrough notebook →](examples/SMART_walkthrough.ipynb)**
@@ -41,6 +41,8 @@ The examples use common sleep measurements, demographics and clinical history. R
 | :--- | :--- | :--- |
 | **[Age estimation](smart/templates/age_estimation.txt)** | SCN + requested age domains | Numerical ages and accompanying generated explanations |
 | **[Recommendation generation](smart/templates/recommendation.txt)** | SCN + labelled baseline/counterfactual age table | Clinical summary, prioritized recommendations and a follow-up plan |
+
+The recommendation template requires one individual’s baseline and at least nine distinct counterfactual scenarios with saved age estimates. The two walkthrough perturbations illustrate separate individuals and do not form a recommendation input table.
 
 The templates preserve the selected manuscript prompt text. Ten stochastic decodings use temperature **0.7** and top-p **0.9**. Paired counterfactual age estimates use the same greedy settings for baseline and modified inputs. Model generation is outside this release. Analyses accept saved age estimates.
 
@@ -58,7 +60,7 @@ The walkthrough creates SCNs, task prompts and a field-change table in `outputs/
 
 ## Reproduce the decoding comparison
 
-The repository includes the **complete released summary tables** for Fig. 4h (ten organ-group AUC comparisons) and Extended Data Fig. 9c (eight cardiovascular C-index comparisons), each with three decoding strategies and 95% CIs from 2,000 paired participant bootstrap resamples.
+The repository includes the **complete released summary tables** for Fig. 4h (ten organ-group AUC comparisons) and Extended Data Fig. 9c (eight cardiovascular C-index comparisons), each with three decoding strategies and 95% CIs from 2,000 paired participant bootstrap resamples. The ED9c table matches the 28 October 2026 submission, using individual follow-up for participants without an event.
 
 ```bash
 python analyses/replot.py
