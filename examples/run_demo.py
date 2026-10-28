@@ -27,6 +27,31 @@ def scenario(record,target,value):
     for field,alias in FIELD_MAP.items():
         if alias in modified and modified[alias] != numeric[alias]:
             result['Sleep study measurements'][field]=re.sub(r'^[0-9.]+',f'{modified[alias]:.6g}',source[field],count=1)
+    if target in {'TST', 'SE'}:
+        timing = ('Total recording time', 'Total sleep time',
+                  'Sleep onset latency', 'Wake after sleep onset')
+        if all(source.get(field) is not None for field in timing):
+            baseline = {field: float(re.match(r'^[0-9.]+', source[field])[0])
+                        for field in timing}
+            terminal_wake = (baseline['Total recording time']
+                             - baseline['Total sleep time']
+                             - baseline['Sleep onset latency']
+                             - baseline['Wake after sleep onset'])
+            if terminal_wake < -1e-6:
+                raise ValueError('The constructed example has inconsistent sleep timing.')
+            # In these constructed inputs, recording time spans lights off to lights on.
+            # Hold latency and terminal wake fixed and let WASO absorb the TST change.
+            new_waso = (baseline['Wake after sleep onset']
+                        + baseline['Total sleep time'] - modified['TST'])
+            if new_waso < -1e-6:
+                raise ValueError('The TST scenario leaves insufficient time for the fixed sleep latency and terminal wake.')
+            new_waso = max(0.0, new_waso)
+            if new_waso != baseline['Wake after sleep onset']:
+                field = 'Wake after sleep onset'
+                result['Sleep study measurements'][field] = re.sub(
+                    r'^[0-9.]+', f'{new_waso:.6g}', source[field], count=1)
+                audit.append(dict(field='WASO', baseline=baseline[field],
+                                  counterfactual=new_waso))
     return result,audit
 
 def run(output_dir=None,predictions=None,case='01_respiratory_context'):
